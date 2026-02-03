@@ -1,0 +1,197 @@
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #0e0f12;
+  color: #eaeaea;
+}
+
+/* ============================= */
+/* WRAPPER */
+/* ============================= */
+
+.editor-wrapper {
+  min-height: 100vh;
+  padding: 40px 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================= */
+/* TOP + TOOL BAR */
+/* ============================= */
+
+.editor-top,
+.editor-tools {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 14px;
+  margin-bottom: 14px;
+
+  background: #16171c; /* simple flat */
+  border-radius: 10px;
+}
+
+.editor-tools {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+button {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid #2b2c31;
+
+  background: #1e1f25;
+  color: white;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #2a2b32;
+}
+
+/* publish highlight */
+.publish-top,
+.publish-btn {
+  background: #7b5cff;
+  border: none;
+}
+
+.publish-top:hover,
+.publish-btn:hover {
+  background: #8f73ff;
+}
+
+/* ============================= */
+/* COLOR PICKERS */
+/* ============================= */
+
+.editor-tools label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.editor-tools input[type="color"] {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* PAGE */
+/* ============================= */
+
+.page {
+  width: 100%;
+  max-width: 900px;
+  min-height: 650px;
+
+  padding: 60px;
+
+  background: #121318;
+  border-radius: 12px;
+
+  /* soft only */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+.page input,
+.page textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+
+  color: inherit;
+  font-family: Georgia, serif;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+
+.book-title {
+  font-size: 40px;
+  margin-bottom: 14px;
+}
+
+.book-subtitle {
+  font-size: 18px;
+  opacity: 0.6;
+  margin-bottom: 32px;
+}
+
+.book-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.book-content {
+  font-size: 18px;
+  line-height: 1.9;
+  min-height: 520px;
+  caret-color: #fff;
+}
+
+/* ============================= */
+/* PREVIEW */
+/* ============================= */
+
+.preview {
+  font-size: 18px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+/* ============================= */
+/* NAV */
+/* ============================= */
+
+.page-nav {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 30px 20px;
+  }
+}

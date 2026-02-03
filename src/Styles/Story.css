@@ -1,0 +1,137 @@
+/* ===== WRAPPER ===== */
+.stories-wrapper {
+  min-height: 100vh;
+  padding: 28px 36px;
+  background: radial-gradient(circle at top, #1b1f26, #0b0d10 60%);
+  color: #fff;
+}
+
+/* ===== TABS ===== */
+.stories-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.stories-tabs button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.stories-tabs button.active {
+  background: #ffffff;
+  color: #000;
+  font-weight: 600;
+}
+
+/* ===== GRID (Pinterest Feel) ===== */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* ===== BOOK CARD ===== */
+.book-card {
+  position: relative;
+  height: 360px;
+  background: linear-gradient(160deg, #2a2f38, #1a1e25);
+  border-radius: 18px;
+  padding: 18px;
+  cursor: pointer;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.book-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== HEADER ===== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-author {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.card-author:hover {
+  text-decoration: underline;
+}
+
+/* ===== 3 DOT MENU ===== */
+.menu-dots {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.menu-dots:hover {
+  opacity: 1;
+}
+
+/* ===== MENU DROPDOWN ===== */
+.menu-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 16px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 20;
+  min-width: 120px;
+}
+
+.menu-dropdown div {
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.menu-dropdown div:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== BOOK BODY (EMPTY BOOK FEEL) ===== */
+.book-cover {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent),
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .stories-wrapper {
+    padding: 20px;
+  }
+
+  .book-card {
+    height: 300px;
+  }
+}

@@ -206,15 +206,14 @@ export default function Stories() {
 
   /* ================= RETURN UI ================= */
 
- return (
-  <StoriesPage
-    stories={stories}
-    loading={loading}
-    lastElementRef={lastElementRef}
-    onLike={likeStory}
-    navigateToStory={(id)=>navigate(`/story/${id}`)}
-    navigateToUser={(uid)=>navigate(`/user/${uid}`)}
-  />
-);
-
+  return (
+    <StoriesPage
+      stories={stories}
+      loading={loading}
+      lastElementRef={lastElementRef}
+      onLike={likeStory}
+      navigateToStory={(id) => navigate(`/story/${id}`)}
+      navigateToUser={(uid) => navigate(`/user/${uid}`)}
+    />
+  );
 }

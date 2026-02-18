@@ -15,7 +15,8 @@ import {
 import { db, auth } from "../../../firebase/config";
 
 import "../../../Styles/darkBookEditor.css";
-import "../../../Styles/story.css";
+import "../../../Styles/Story.css";
+
 import { deleteDoc } from "firebase/firestore";
 import { goToProfile } from "../../../utils/profileNav";
 

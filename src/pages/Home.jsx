@@ -5,6 +5,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useEffect, useState } from "react";
 import "../Styles/home.css";
+import Reels from "./Reels";
+
 
 export default function Home() {
   const navigate = useNavigate();
@@ -41,7 +43,7 @@ export default function Home() {
 
         <div style={{ display: "flex", gap: "12px" }}>
           <button onClick={() => navigate("/profile")}>Profile</button>
-          <button onClick={handleLogout}>Logout</button>
+          {/* <button onClick={handleLogout}>Logout</button> */}
         </div>
       </div>
 
@@ -62,6 +64,15 @@ export default function Home() {
               <span>Your words deserve a place.</span>
             </div>
           )}
+{/* SHAYARI REELS - NEW */}
+<div
+  className="action-card reels-card"
+  onClick={() => navigate("/reels")}
+>
+  <h3>Shayari Reels</h3>
+  <span>Feel. Scroll. Repeat.</span>
+  <div className="reels-badge">NEW</div>
+</div>
 
           {/* READER ONLY */}
           {role === "reader" && (

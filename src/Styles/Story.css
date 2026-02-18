@@ -1,137 +1,267 @@
-/* ===== WRAPPER ===== */
-.stories-wrapper {
+.reader-shell {
   min-height: 100vh;
-  padding: 28px 36px;
-  background: radial-gradient(circle at top, #1b1f26, #0b0d10 60%);
-  color: #fff;
-}
-
-/* ===== TABS ===== */
-.stories-tabs {
+  padding: 40px 16px 80px;
   display: flex;
-  gap: 12px;
-  margin-bottom: 28px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.stories-tabs button {
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #fff;
+.reader-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.reader-header h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.reader-text {
+  white-space: pre-wrap;
+  line-height: 1.9;
+  font-size: 18px;
+}
+
+.reader-nav {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.reader-nav button {
+  background: rgba(255, 255, 255, 0.1);
+}
+/* ===== READER BASE ===== */
+
+.reader-shell {
+  min-height: 100vh;
+  padding: 20px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+/* top bar */
+
+.reader-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 14px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 15px;
   cursor: pointer;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* BOOK */
+
+.book {
+  margin-top: 60px;
+  max-width: 720px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: 0.35s;
+}
+
+/* NAVIGATION */
+
+.reader-nav {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reader-nav button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.reader-nav span {
+  opacity: 0.7;
   font-size: 14px;
 }
 
-.stories-tabs button.active {
-  background: #ffffff;
-  color: #000;
-  font-weight: 600;
+/* ===== SOCIAL PANEL ===== */
+
+.social-panel {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 28px;
 }
 
-/* ===== GRID (Pinterest Feel) ===== */
-.stories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 22px;
-}
+/* actions */
 
-/* ===== BOOK CARD ===== */
-.book-card {
-  position: relative;
-  height: 360px;
-  background: linear-gradient(160deg, #2a2f38, #1a1e25);
-  border-radius: 18px;
-  padding: 18px;
-  cursor: pointer;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-}
-
-.book-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
-}
-
-/* ===== HEADER ===== */
-.card-header {
+.actions {
   display: flex;
-  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.actions button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.actions button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ===== COMMENTS ===== */
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.comment {
+  display: flex;
+  gap: 10px;
   align-items: flex-start;
 }
 
-.card-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 4px;
+.comment img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.card-author {
+.comment b {
   font-size: 13px;
-  opacity: 0.7;
 }
 
-.card-author:hover {
-  text-decoration: underline;
-}
-
-/* ===== 3 DOT MENU ===== */
-.menu-dots {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0.7;
-}
-
-.menu-dots:hover {
-  opacity: 1;
-}
-
-/* ===== MENU DROPDOWN ===== */
-.menu-dropdown {
-  position: absolute;
-  top: 48px;
-  right: 16px;
-  background: #111;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  overflow: hidden;
-  z-index: 20;
-  min-width: 120px;
-}
-
-.menu-dropdown div {
-  padding: 10px 14px;
+.comment p {
+  margin: 2px 0 0;
   font-size: 14px;
+  opacity: 0.9;
+}
+
+/* input */
+
+.comment-input {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.comment-input input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.comment-input button {
+  padding: 8px 14px;
+  border-radius: 18px;
+  border: none;
+  background: white;
+  color: black;
   cursor: pointer;
 }
-
-.menu-dropdown div:hover {
-  background: rgba(255, 255, 255, 0.08);
+.comment {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 12px;
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+.comment b {
+  color: #8ab4ff;
 }
 
-/* ===== BOOK BODY (EMPTY BOOK FEEL) ===== */
-.book-cover {
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent),
-    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4));
+/* ===== READ MODE ===== */
+
+.reader-shell:has(.book):not(:has(.reader-topbar)) .social-panel,
+.reader-shell:has(.book):not(:has(.reader-topbar)) .reader-nav {
+  display: none;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .book {
+    padding: 22px 18px;
+  }
+
+  .reader-topbar {
+    height: 52px;
+  }
+}
+/* CINEMATIC MODE */
+
+.reader-shell.read-mode {
+  background: #000;
+}
+
+.reader-shell.read-mode .social-panel,
+.reader-shell.read-mode .reader-topbar {
+  opacity: 0;
   pointer-events: none;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .stories-wrapper {
-    padding: 20px;
-  }
+.reader-shell.read-mode .book {
+  transform: scale(1.05);
+  transition: 0.4s;
+}
 
-  .book-card {
-    height: 300px;
+/* fade text */
+
+.player-line {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

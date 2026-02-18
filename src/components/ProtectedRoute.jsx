@@ -4,22 +4,22 @@ import { auth } from "../firebase/config";
 import { useEffect, useState } from "react";
 
 export default function ProtectedRoute({ children }) {
-  const [user, setUser] = useState(undefined);
+
+  const [user, setUser] = useState(null);
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      setChecking(false);
     });
-    return () => unsubscribe();
+
+    return () => unsub();
+
   }, []);
 
-  if (user === undefined) {
-    return <p style={{ color: "white" }}>Checking auth...</p>;
-  }
+  if (checking) return null;
 
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-
-  return children;
+  return user ? children : <Navigate to="/login" replace />;
 }

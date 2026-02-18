@@ -17,6 +17,10 @@ const app = initializeApp(firebaseConfig);
 // Firebase services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-export const storage = getStorage(app);
+export const storage = getStorage(
+  app,
+  "gs://storyverse-6a54d.firebasestorage.app"
+);
+
 
 export default app;

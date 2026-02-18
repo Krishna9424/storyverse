@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 import { useNavigate, Link } from "react-router-dom";
 import "../Styles/auth.css";
 
 export default function Register() {
+
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");     // ✅ NAME STATE
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,7 +21,8 @@ export default function Register() {
     setLoading(true);
 
     try {
-      // 1️⃣ Create user in Firebase Auth
+
+      /* 1️⃣ CREATE AUTH ACCOUNT */
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -29,18 +31,28 @@ export default function Register() {
 
       const user = userCredential.user;
 
-      // 2️⃣ Save extra user data in Firestore
+      /* 2️⃣ SET DISPLAY NAME IN AUTH (IMPORTANT) */
+      await updateProfile(user, {
+        displayName: name
+      });
+
+      /* 3️⃣ CREATE USER PROFILE IN FIRESTORE */
       await setDoc(doc(db, "users", user.uid), {
         name: name,
         email: email,
-        createdAt: new Date(),
+        photoURL: "",
+        bio: "",
+        followers: 0,
+        following: 0,
+        createdAt: serverTimestamp()
       });
 
-      // 3️⃣ Redirect to Home
+      /* 4️⃣ GO HOME */
       navigate("/");
+
     } catch (err) {
       console.error(err);
-      setError("Account already exists or invalid email.");
+      setError("Email already exists or invalid input.");
     } finally {
       setLoading(false);
     }
@@ -49,10 +61,10 @@ export default function Register() {
   return (
     <div className="auth-wrapper">
       <form className="auth-card" onSubmit={handleRegister}>
+
         <h2>Create account</h2>
         <p>Every story begins with a name.</p>
 
-        {/* 🔥 NAME INPUT */}
         <input
           type="text"
           placeholder="Your name"
@@ -86,6 +98,7 @@ export default function Register() {
         <div className="auth-link">
           Already inside? <Link to="/login">Login</Link>
         </div>
+
       </form>
     </div>
   );

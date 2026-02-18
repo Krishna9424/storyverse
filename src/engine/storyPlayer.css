@@ -1,0 +1,173 @@
+/* ===== READER BASE ===== */
+
+.player-root {
+  width: 100%;
+  min-height: 320px;
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 0.6s ease;
+}
+
+/* paragraphs */
+.player-line {
+  margin: 18px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.95;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: lineReveal 0.5s ease forwards;
+}
+
+/* delay for cinematic entry */
+.player-line:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.player-line:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.player-line:nth-child(3) {
+  animation-delay: 0.18s;
+}
+.player-line:nth-child(4) {
+  animation-delay: 0.24s;
+}
+.player-line:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.player-line:nth-child(6) {
+  animation-delay: 0.36s;
+}
+.player-line:nth-child(7) {
+  animation-delay: 0.42s;
+}
+.player-line:nth-child(8) {
+  animation-delay: 0.48s;
+}
+
+/* dialogue style */
+.player-dialogue {
+  margin-left: 28px;
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
+  padding-left: 14px;
+  font-style: italic;
+}
+
+/* loud / impact lines */
+.player-impact {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  margin: 28px 0;
+  font-weight: 600;
+}
+
+/* whisper */
+.player-whisper {
+  opacity: 0.55;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* pause line (...) */
+.player-pause {
+  text-align: center;
+  letter-spacing: 8px;
+  opacity: 0.4;
+}
+
+/* ===== THEMES ===== */
+
+/* classic */
+.book.classic .player-line {
+  color: #2d2d2d;
+}
+
+/* vintage */
+.book.vintage .player-line {
+  color: #3b2b1a;
+}
+
+/* night */
+.book.night .player-line {
+  color: #e2e8f0;
+}
+
+/* fantasy glow */
+.book.fantasy .player-line {
+  color: #ffd369;
+  text-shadow: 0 0 6px rgba(255, 211, 105, 0.25);
+}
+
+/* horror */
+.book.horror .player-line {
+  color: #ff3b3b;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.45);
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .player-line {
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  .player-impact {
+    font-size: 20px;
+  }
+}
+/* ===== FORCE TEXT COLOR BY THEME ===== */
+
+.book.classic,
+.book.classic .player-line {
+  color: #2d2d2d !important;
+}
+
+.book.vintage,
+.book.vintage .player-line {
+  color: #3b2b1a !important;
+}
+
+.book.night,
+.book.night .player-line {
+  color: #e2e8f0 !important;
+}
+
+.book.fantasy,
+.book.fantasy .player-line {
+  color: #ffd369 !important;
+}
+
+.book.horror,
+.book.horror .player-line {
+  color: #ff3b3b !important;
+}

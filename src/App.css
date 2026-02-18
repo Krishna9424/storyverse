@@ -1,8 +1,16 @@
+/* App root should never restrict layout */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+/* remove default vite demo styles */
+.logo,
+.card,
+.read-the-docs {
+  display: none;
 }
 
 .logo {

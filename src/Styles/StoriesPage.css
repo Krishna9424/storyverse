@@ -1,0 +1,26 @@
+.stories-page {
+  min-height: 100vh;
+  padding: 60px 6%;
+  background: radial-gradient(circle at top, #0b0f1a, #05070c 60%, #000);
+  color: #e6e6e6;
+  font-family: "Inter", sans-serif;
+}
+
+.stories-header {
+  margin-bottom: 40px;
+}
+
+.stories-header h1 {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.stories-header p {
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+.stories-section {
+  margin-top: 50px;
+}

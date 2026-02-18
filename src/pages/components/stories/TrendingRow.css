@@ -1,0 +1,60 @@
+.trending-row {
+  width: 100%;
+  padding-left: 10px;
+}
+
+/* title */
+.section-title {
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+/* scroll area */
+.trending-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 16px 18px;
+  scroll-snap-type: x mandatory;
+}
+
+/* hide scrollbar */
+.trending-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- CARD SIZE SYSTEM ---------- */
+
+/* mobile: small cards */
+.trending-scroll > * {
+  flex: 0 0 150px;
+  scroll-snap-align: start;
+}
+
+/* big phones */
+@media (min-width: 480px) {
+  .trending-scroll > * {
+    flex: 0 0 170px;
+  }
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .trending-scroll > * {
+    flex: 0 0 200px;
+  }
+}
+
+/* laptop */
+@media (min-width: 1024px) {
+  .trending-scroll > * {
+    flex: 0 0 230px;
+  }
+}
+
+/* desktop */
+@media (min-width: 1280px) {
+  .trending-scroll > * {
+    flex: 0 0 260px;
+  }
+}
